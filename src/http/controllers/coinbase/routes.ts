@@ -9,6 +9,7 @@ import { onRampBaseEth } from './on-ramp-base-eth';
 import { stake } from './staking-eth-holesky/stake-token';
 import { addWalletFundEthHolensky } from './staking-eth-holesky/add-wallet-fund-eth-holenksy';
 import { getStakeWalletBalances } from './staking-eth-holesky/get-wallet-balance';
+import { unstake } from './staking-eth-holesky/unstake-token';
 
 export async function CoinbaseRoutes(app: FastifyInstance) {
   app.get("/coinbase/create-wallet", createWallet)
@@ -24,4 +25,5 @@ export async function CoinbaseRoutes(app: FastifyInstance) {
   app.post("/coinbase/stake/get-wallet-balances", getStakeWalletBalances)
   app.get("/coinbase/on-ramp-base-eth/:user_address", onRampBaseEth)
   app.post("/coinbase/stake", stake)
+  app.post("/coinbase/unstake", unstake)
 }
